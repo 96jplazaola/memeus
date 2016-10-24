@@ -1,0 +1,16 @@
+<section>
+    {% if memeDenak %}
+{% for memea in memeDenak %}
+    <article class="memea">
+        <h1><a href="{%  url 'music:details' memea.id %}"> <!-- url-a, beraren izena edo name atributua eta bidali beharrekoa -->
+    {{ memea.izenburua }}</a></h1>
+        <img src="{{ memea.argazkia }}" onclick="location.href ='{% url 'music:details' memea.id %}'">
+    </article>
+
+{% endfor %}
+{% else %}
+<h2>Ez dago memerik oraindik.</h2>
+{% endif %}
+</section>
+
+{% include "orokorra/orrioina.html" %}
