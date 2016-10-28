@@ -1,10 +1,13 @@
 <section>
+
+<a href="{% url 'memea:memea-sortu' %}">Hemen mobidas</a>
+
     {% if memeDenak %}
 {% for memea in memeDenak %}
     <article class="memea">
-        <h1><a href="{%  url 'music:details' memea.id %}"> <!-- url-a, beraren izena edo name atributua eta bidali beharrekoa -->
+        <h1><a href="{%  url 'memea:details' memea.id %}"> <!-- url-a, beraren izena edo name atributua eta bidali beharrekoa -->
     {{ memea.izenburua }}</a></h1>
-        <img src="{{ memea.argazkia }}" onclick="location.href ='{% url 'music:details' memea.id %}'">
+        <img src="{{ memea.argazkia }}" onclick="location.href ='{% url 'memea:details' memea.id %}'">
     </article>
 
 {% endfor %}

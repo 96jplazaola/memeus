@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Memea
+from django.views.generic.edit import CreateView, DeleteView, UpdateView
 
 
 def index(request):
@@ -11,13 +12,10 @@ def index(request):
 
 
 def details(request, meme_id):
-  '''
-
-    try:
-        memea = Memea.objects.get(pk=meme_id)
-    except Memea.DoesNotExist:
-        raise Http404("Meme hau ez da existitzen")
-    Hau ein biharrian behekua eitten da
-  '''
-  memea = get_object_or_404(Memea,pk=meme_id)
+    memea = get_object_or_404(Memea, pk=meme_id)
     return render(request, 'memea/details.html', {'memea': memea})
+
+
+class MemeaSortu(CreateView):
+    model = Memea
+    fields = ['izenburua', 'argazkia']
