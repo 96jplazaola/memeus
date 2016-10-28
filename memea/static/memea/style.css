@@ -1,0 +1,17 @@
+body {
+    background: white url("images/background.jpeg");
+}
+
+
+.memea {
+
+    width: 50%;
+    margin-left:  auto;
+    margin-right: auto;
+    margin-top: 40px;
+}
+
+body { padding-top: 40px; }
+@media screen and (max-width: 768px) {
+    body { padding-top: 0px; }
+}
