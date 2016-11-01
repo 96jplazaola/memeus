@@ -12,4 +12,9 @@ urlpatterns = [
 
     #memea/new
     url(r'^new/$', views.MemeaSortu.as_view(), name='memea-sortu'),
+
+
+    url(r'^register/$', views.register,  name='kontua-sortu'),
+
+
 ]

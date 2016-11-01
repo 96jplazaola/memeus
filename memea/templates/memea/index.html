@@ -1,8 +1,5 @@
 {% include "orokorra/orriburua.html" %}
 <section>
-{% load staticfiles %}
-<link rel="stylesheet" type="text/css" href="{%  static 'memea/style.css' %}"/>
-<a href="{% url 'memea:memea-sortu' %}">Hemen mobidas</a>
 
     {% if memeDenak %}
 {% for memea in memeDenak %}
