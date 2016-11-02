@@ -1,11 +1,12 @@
 {% include "orokorra/orriburua.html" %}
-
+<article class="memea">
 {% if memea %}
-
-<h1>
+    <h1>
     {{ memea.izenburua }}
 </h1>
     <img src="{{ memea.argazkia }}" >
 {% else %}
     <h2>Ikusi nahi zenuen meme hori ez dago erabilgarri...</h2>
 {% endif %}
+
+    </article>
