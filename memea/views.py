@@ -5,6 +5,7 @@ from django.contrib.auth import authenticate, login
 from django.views.generic import View
 from .forms import UserForm
 
+
 def index(request):
     meme_denak = Memea.objects.all()
     context = {
@@ -35,11 +36,7 @@ def register(request):
         if user is not None:
             if user.is_active:
                 login(request, user)
-                meme_denak = Memea.objects.all()
-                context = {
-                    'memeDenak': meme_denak
-                }
-                return render(request, 'memea/index.html', context)
+                return index(request)
     context = {
         "form": form,
     }
