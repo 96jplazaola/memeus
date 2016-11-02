@@ -35,7 +35,11 @@ def register(request):
         if user is not None:
             if user.is_active:
                 login(request, user)
-                return render(request, 'memea/index.html')
+                meme_denak = Memea.objects.all()
+                context = {
+                    'memeDenak': meme_denak
+                }
+                return render(request, 'memea/index.html', context)
     context = {
         "form": form,
     }
