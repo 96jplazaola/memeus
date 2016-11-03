@@ -4,6 +4,6 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^memea/', include('memea.urls')),
-    url(r'^$', include('memea.urls')),
+    url(r'^', include('memea.urls')),
     
 ]

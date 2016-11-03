@@ -6,7 +6,10 @@
     <article class="memea">
         <h1><a href="{%  url 'memea:details' memea.id %}"> <!-- url-a, beraren izena edo name atributua eta bidali beharrekoa -->
     {{ memea.izenburua }}</a></h1>
-        <img src="{{ memea.argazkia }}" onclick="location.href ='{% url 'memea:details' memea.id %}'">
+        <img src="{{ memea.argazkia }}" onclick="location.href ='{% url 'memea:details' memea.id %}'"><br>
+    <button class="btn btn-outline-primary"><span class="glyphicon glyphicon-arrow-up"></span></button>
+    <button class="btn btn-default"><span class="glyphicon glyphicon-arrow-down"></span></button>
+    <button class="btn btn-default"><span class="glyphicon glyphicon-comment"></span></button>
     </article>
 
 {% endfor %}
