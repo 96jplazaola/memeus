@@ -18,11 +18,12 @@
 
       <a class="navbar-brand" href="{%  url 'memea:index' %}">Mem<strong>eus</strong></a>
       <ul class="nav navbar-nav">
+         {% if request.user.is_authenticated %}
 
         <li class="nav-item">
             <a class="nav-link" href="{% url 'memea:memea-sortu' %}">Meme berria igo</a>
         </li>
-
+          {%  endif %}
         <li class="nav-item">
           <a class="nav-link" href="#">Contact</a>
         </li>
@@ -39,12 +40,16 @@
           <li class="nav-item">
               <a class="nav-link" href="{% url 'memea:kontua-sortu' %}"> Sortu kontua</a>
           </li>
-        <li class="nav-item">
+
+         {% if request.user.is_authenticated %}
+             <li class="nav-item">
+                <a class="nav-link" href="{% url 'memea:saioa-amaitu' %}"> Amaitu saioa</a>
+            </li>
+         {% else %}
+             <li class="nav-item">
             <a class="nav-link" href="{% url 'memea:saioa-hasi' %}"> Hasi saioa</a>
-        </li>
-         <li class="nav-item">
-            <a class="nav-link" href="{% url 'memea:saioa-amaitu' %}"> Amaitu saioa</a>
-        </li>
+            </li>
+         {%  endif %}
       </ul>
   </div>
 

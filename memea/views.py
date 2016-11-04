@@ -23,7 +23,9 @@ def memeasortu(request):
     form = MemeaForm(request.POST or None, request.FILES)
     if form.is_valid():
         memea = form.save(commit=False)
-        memea.egilea = request.user
+        if request.user.is_authenticated():
+            # Badaezpada jarritta, berez ezin dau erabiltzaile batek memea sortu baina...
+            memea.egilea = request.user
         memea.save()
         return index(request)
 
