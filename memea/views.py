@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 
 def index(request):
     meme_denak = Memea.objects.all()
+    meme_denak = reversed(meme_denak) # reverseako hau ikutu det joanes
     context = {
         'memeDenak': meme_denak
     }
