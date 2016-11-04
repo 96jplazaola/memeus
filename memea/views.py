@@ -49,4 +49,4 @@ def register(request):
     context = {
         "form": form,
     }
-    return render(request, 'memea/registration_form.html', context)
+    return render(request, 'registration/registration.html', context)

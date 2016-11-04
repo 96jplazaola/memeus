@@ -1,5 +1,7 @@
 from django.conf.urls import url
 from . import views
+from django.contrib.auth import views as auth_views
+
 
 app_name = 'memea'
 
@@ -15,6 +17,10 @@ urlpatterns = [
 
 
     url(r'^register/$', views.register,  name='kontua-sortu'),
+
+    url(r'^login/$', auth_views.login, name='saioa-hasi'),
+
+    url(r'^logout/$', auth_views.logout, {'next_page': '/memea'}, name='saioa-amaitu'),
 
 
 ]
