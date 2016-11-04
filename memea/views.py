@@ -3,7 +3,7 @@ from .models import Memea
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.contrib.auth import authenticate, login
 from django.views.generic import View
-from .forms import UserForm
+from .forms import UserForm, MemeaForm
 
 
 def index(request):
@@ -19,9 +19,18 @@ def details(request, meme_id):
     return render(request, 'memea/details.html', {'memea': memea})
 
 
-class MemeaSortu(CreateView):
-    model = Memea
-    fields = ['izenburua', 'argazkia']
+def memeasortu(request):
+    form = MemeaForm(request.POST or None, request.FILES)
+    if form.is_valid():
+        memea = form.save(commit=False)
+        memea.egilea = request.user
+        memea.save()
+        return index(request)
+
+    context = {
+        "form": form,
+    }
+    return render(request, 'memea/memea_form.html', context)
 
 
 def register(request):

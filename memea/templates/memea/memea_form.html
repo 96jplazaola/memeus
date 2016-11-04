@@ -1,10 +1,23 @@
 {% include "orokorra/orriburua.html" %}
+{%  load progress_bar %}
 
+<!DOCTYPE html>
+<html>
+<head>
+    {% progress_bar_media %}
+</head>
+
+<body>
 <h1>Meme berria igo</h1>
 
-<form action="" method="POST">
+<form  action="" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     {% include 'memea/template_form.html' %}
+     {% progress_bar %}
+
     <button class="btn btn-outline-primary">Igo memea!</button>
 
 </form>
+
+</body>
+</html>
