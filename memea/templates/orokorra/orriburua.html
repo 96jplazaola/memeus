@@ -1,9 +1,8 @@
 {% load staticfiles %}
 
 <script
-  src="https://code.jquery.com/jquery-3.1.1.min.js"
-  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-  crossorigin="anonymous"></script>
+  src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://use.fontawesome.com/99b06e1f22.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
 <link rel="stylesheet" type="text/css" href="{%  static 'memea/style.css' %}"/>
@@ -21,7 +20,7 @@
          {% if request.user.is_authenticated %}
 
         <li class="nav-item">
-            <a class="nav-link" href="{% url 'memea:memea-sortu' %}">Meme berria igo</a>
+            <a class="nav-link" href="{% url 'memea:memea-sortu' %}"><i class="fa fa-plus" aria-hidden="true"></i> Meme berria igo</a>
         </li>
           {%  endif %}
         <li class="nav-item">
@@ -38,16 +37,16 @@
       </ul>
      <ul class="nav navbar-nav float-xs-right">
           <li class="nav-item">
-              <a class="nav-link" href="{% url 'memea:kontua-sortu' %}"> Sortu kontua</a>
+              <a class="nav-link" href="{% url 'memea:kontua-sortu' %}"><i class="fa fa-user-plus" aria-hidden="true"></i> Sortu kontua</a>
           </li>
 
          {% if request.user.is_authenticated %}
              <li class="nav-item">
-                <a class="nav-link" href="{% url 'memea:saioa-amaitu' %}"> Amaitu saioa</a>
+                <a class="nav-link" href="{% url 'memea:saioa-amaitu' %}"><i class="fa fa-sign-out" aria-hidden="true"></i> Amaitu saioa</a>
             </li>
          {% else %}
              <li class="nav-item">
-            <a class="nav-link" href="{% url 'memea:saioa-hasi' %}"> Hasi saioa</a>
+            <a class="nav-link" href="{% url 'memea:saioa-hasi' %}"><i class="fa fa-sign-in" aria-hidden="true"></i> Hasi saioa</a>
             </li>
          {%  endif %}
       </ul>

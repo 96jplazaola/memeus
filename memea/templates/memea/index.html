@@ -9,10 +9,10 @@
         <h1><a href="{%  url 'memea:details' memea.id %}"> <!-- url-a, beraren izena edo name atributua eta bidali beharrekoa -->
     {{ memea.izenburua }}</a></h1>
         <img src="{{ memea.argazkia.url }}" onclick="location.href ='{% url 'memea:details' memea.id %}'"><br>
-        <span>{{ memea.datsegitKop|sub:memea.ezdatsegitKop }}</span>
-    <button class="btn btn-outline-primary">Hemen gora</button>
-    <button class="btn btn-outline-primary">Hemen behera</button>
-    <button class="btn btn-outline-primary">Hemen comment</button>
+        <span>{{ memea.datsegitKop|sub:memea.ezdatsegitKop }} puxtarri</span><br>
+    <button class="btn btn-outline-primary"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Datsegit</button>
+    <button class="btn btn-outline-primary"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i> Nagogait</button>
+    <button class="btn btn-outline-primary"><i class="fa fa-comment-o" aria-hidden="true"></i> Utzi iruzkina!</button>
     </article>
 
 {% endfor %}

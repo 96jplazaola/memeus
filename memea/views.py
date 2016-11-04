@@ -1,9 +1,8 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404
 from .models import Memea
-from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.contrib.auth import authenticate, login
-from django.views.generic import View
 from .forms import UserForm, MemeaForm
+from django.contrib.auth.decorators import login_required
 
 
 def index(request):
@@ -19,13 +18,12 @@ def details(request, meme_id):
     return render(request, 'memea/details.html', {'memea': memea})
 
 
+@login_required(login_url='/login/')
 def memeasortu(request):
     form = MemeaForm(request.POST or None, request.FILES)
     if form.is_valid():
         memea = form.save(commit=False)
-        if request.user.is_authenticated():
-            # Badaezpada jarritta, berez ezin dau erabiltzaile batek memea sortu baina...
-            memea.egilea = request.user
+        memea.egilea = request.user
         memea.save()
         return index(request)
 
