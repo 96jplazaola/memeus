@@ -3,10 +3,11 @@ from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
 from django.utils.timezone import now
 
+
 class Memea(models.Model):
     egilea = models.ForeignKey(User, models.SET_NULL, blank=True, null=True,)
     izenburua = models.CharField(max_length=100)
-    argazkia = models.FileField()
+    argazkia = models.ImageField()
     datsegitKop = models.IntegerField(default=0)
     ezdatsegitKop = models.IntegerField(default=0)
     igoData = models.DateTimeField(default=now)
