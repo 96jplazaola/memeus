@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 
 def index(request):
     meme_denak = Memea.objects.all()
-    meme_denak = reversed(meme_denak) # reverseako hau ikutu det joanes
+    meme_denak = reversed(meme_denak)  # Azkenengo igo dan memia lehenengo egon deixen listan.
     context = {
         'memeDenak': meme_denak
     }
@@ -16,12 +16,15 @@ def index(request):
 
 def details(request, meme_id):
     memea = get_object_or_404(Memea, pk=meme_id)
-    return render(request, 'memea/details.html', {'memea': memea})
+    context = {
+        'memea': memea
+    }
+    return render(request, 'memea/details.html', context)
 
 
 @login_required(login_url='/login/')
 def memeasortu(request):
-    form = MemeaForm(request.POST or None, request.FILES)
+    form = MemeaForm(request.POST or None, request.FILES or None)
     if form.is_valid():
         memea = form.save(commit=False)
         memea.egilea = request.user
